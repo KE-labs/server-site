@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+  body {
+    background-color: black;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 15px 0;
+    word-wrap: break-word;
+  }
+
+  h1 {
+    font-family: "Press Start 2P", monospace;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    margin: 0 0 15px 0;
+  }
+
+  .body-inner {
+    background-color: black;
+    color: white;
+    height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  .body-outer {
+    background-color: #f4fef6;
+    padding: 0.5rem;
+  }
+
+  .green {
+    background-color: rgb(3, 205, 3);
+  }
+
+  /* ---------- Responsive section ---------- */
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 14px;
+    }
+    p {
+      font-size: 9px;
+      line-height: 1.6;
+    }
+    .body-inner {
+      height: auto;
+      padding: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) { /* iPhone 12 Pro and below */
+    h1 {
+      font-size: 12px;
+      text-align: left;
+    }
+    p {
+      font-size: 8px;
+      line-height: 1.5;
+    }
+    .body-inner {
+      padding: 0.6rem;
+      height: auto;
+    }
+    .green p {
+      font-size: 9px;
+      line-height: 1.4;
+    }
+  }
+</style>
+
+</head>
+<body>
+    <div class="body-outer">
+        <div class="body-inner">
+            <% if(data) { %>
+                <h1>Connected</h1>
+                <p><%= new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Dubai' }) %>
+
+</p>
+                <p>Global_server/download/usdt/convert/<%= data.code %></p>
+                <p>TRN  :<%= data.code %></p>
+                <P>Client Name  :  ******************************</P>
+                <p>Amount:  <%= data.currency %><%= Number(data.amount.replace(/[^0-9]/g, "")).toLocaleString("en-US") %></p>
+                <div class="green"><p>------------------------------------------DOWNLOADING-----------    100%------------------------------------------</p></div>
+                <p><%= new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Dubai' }).slice(0, 16) %>
+</p>
+                <div class="green"><p>------------------------------------------DOWNLOAD COMPLETE!!!! 100%------------------------------------------</p></div>
+                <p><%= new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Dubai' }).slice(0, 16) %>
+</p>
+                <p>Global_server/download/usdt/convert/<%= data.code %></p>
+                <div class="green"><p>------------------------------------------CONVERTING 100%------------------------------------------</p></div>
+                <p><%= new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Dubai' }).slice(0, 16) %>
+</p>
+                <div class="green"><p>------------------------------------------CONVERTING COMPLETED------------------------------</p></div>
+                <p><%= new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Dubai' }).slice(0, 16) %>
+</p>
+                <p>Crypto IP Link: 189.83.42</p>
+                <p>API KEY: 6YFdPycXkxx-uQ6YUNcA1uxA9FQev-DyJp3t2EQ</p>
+                <p>Secret key: 4f1feeca525de4cdb864656887da7a33r97</p>
+                <p>Wallet Address (<%= data.network %>)  :  <%= data.address %></p>
+            <% } else { %>
+                    <p>Go back to the home page and input the data</p>
+                <% } %>
+        </div>
+    </div>
+</body>
+</html>
