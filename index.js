@@ -17,7 +17,6 @@ app.get("/trn", (req, res) => {
 })
 
 app.post("/details", (req, res) => {
-    console.log(req.body);
     let inputDetails = req.body;
     res.render("index.ejs", {data: inputDetails})
 })
